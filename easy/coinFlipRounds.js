@@ -5,8 +5,9 @@ Write a function that, given n, returns the number of rounds you'd expect to pla
 */
 
 var assert = require('assert');
+var path = require('path');
 
-describe('coin flips', () => {
+describe(path.basename(__filename), () => {
   it('round number tests', () => {
     assert.equal(numRounds(1),0);
     assert.equal(numRounds(2),1);

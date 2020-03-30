@@ -15,10 +15,30 @@ var assert = require('assert');
 
 describe('coin collection matrix', function() {
   it('should pass the default case', function() {
-    assert.equal(getCoins([[0,3,1,1],[2,0,0,4],[1,5,3,1]],12));
+    // let solutions = getCoins([[0,3,1,1],[2,0,0,4],[1,5,3,1]])
+    // assert.equal(Math.max(...solutions),12);
+    assert.equal(getMaxCoins([[0,3,1,1],[2,0,0,4],[1,5,3,1]]), 12);
   });
 });
 
-function getCoins(matrix) {
-  return 0;
+function getMaxCoins(matrix) {
+  // recursive formula (assuming row, col != 0):
+  // max(row,col) = max(max(row-1,col),max(row,col-1))
+  // we work backwards from bottom right and compare the choices
+  // we recursively make all moves and return
+  function recurse(row, col, sum) {
+    let cellVal = matrix[row][col];
+    if (row == 0 && col == 0) {
+      return sum + cellVal;
+    } else if (row == 0) {
+      return recurse(row, col-1, sum + cellVal);
+    } else if (col == 0) {
+      return recurse(row-1, col, sum + cellVal);
+    } else {
+      let rMax = recurse(row-1, col, sum + cellVal);
+      let cMax = recurse(row, col-1, sum + cellVal);
+      return Math.max(rMax, cMax);
+    }
+  }
+  return recurse(matrix.length-1, matrix[0].length-1, 0);
 }

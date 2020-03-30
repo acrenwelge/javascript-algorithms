@@ -10,12 +10,43 @@ get(i): gets the value at index i.
 
 var assert = require('assert');
 
-describe('SpareArray', function() {
+describe(__filename, function() {
   it('initializes properly', () => {
-    assert.ok(false);
+    let arr = [0,0,0,5,4,0,0,0,0,0,9,1];
+    let spArr = new SparseArray();
+    spArr.init(arr,arr.length);
+    assert.equal(spArr.get(3), arr[3]);
   });
 
   it('sets and gets properly', () => {
-    assert.ok(false);
+    let spArr = new SparseArray();
+    spArr.set(8, 3);
+    assert.equal(spArr.get(8), 3);
   });
 });
+
+// just use a simple object
+class SparseArray {
+  db = {};
+
+  init(arr, size) {
+    for (let i=0; i < size; i++) {
+      if (arr[i] != 0) {
+        this.db[i] = arr[i];
+      }
+    }
+  }
+
+  set(i, val) {
+    this.db[i] = val;
+  }
+
+  get(i) {
+    let val = this.db[i];
+    if (val) {
+      return val;
+    } else {
+      return 0;
+    }
+  }
+}
