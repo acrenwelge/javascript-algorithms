@@ -4,13 +4,16 @@ Write a function that rotates a list by k elements. For example, [1, 2, 3, 4, 5,
 
 var assert = require('assert');
 
-describe('rotateList', function() {
-  it('should....', function() {
-    assert.equal(rotateList([1,2,3,4,5,6],2),[3,4,5,6,1,2]);
+describe(__filename, function() {
+  it('should pass default case', function() {
+    assert.deepStrictEqual(rotateList([1,2,3,4,5,6],2),[3,4,5,6,1,2]);
+  });
+  it('should pass custom case', function() {
+    assert.deepStrictEqual(rotateList([1,2,3,4,5,6],0),[1,2,3,4,5,6]);
   });
 });
 
 function rotateList(arr, k) {
   let part = arr.slice(0,k);
-  return arr.join(part);
+  return arr.concat(part).slice(k);
 }
