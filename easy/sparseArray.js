@@ -9,8 +9,9 @@ get(i): gets the value at index i.
 */
 
 var assert = require('assert');
+var path = require('path');
 
-describe(__filename, function() {
+describe(path.basename(__filename), () => {
   it('initializes properly', () => {
     let arr = [0,0,0,5,4,0,0,0,0,0,9,1];
     let spArr = new SparseArray();

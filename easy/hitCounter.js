@@ -8,8 +8,9 @@ Follow-up: What if our system has limited memory?
 */
 
 var assert = require('assert');
+var path = require('path');
 
-describe(__filename, () => {
+describe(path.basename(__filename), () => {
   it('should record properly', () => {
     let counter = new HitCounter();
     let current = new Date();

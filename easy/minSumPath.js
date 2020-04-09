@@ -15,8 +15,10 @@ For example, the minimum path in this tree is [10, 5, 1, -1], which has sum 15.
 var assert = require('assert');
 var BinaryTree = require('../util/datastructures').BinaryTree;
 var Node = require('../util/datastructures').BTNode;
+var path = require('path');
+var logger = require('../util/logger');
 
-describe(__filename, function() {
+describe(path.basename(__filename), () => {
   it('should pass default test', () => {
     let tree = new BinaryTree(
       new Node(null, new Node(null,null,2),5),
@@ -31,9 +33,9 @@ function findMinPath(tree) {
   // we can store the cumulative sum at each node
   function recurse(node, sum) {
     if (!node) return sum;
-    console.debug(`at node ${node.val}, sum is ${sum}`);
+    logger.debug(`at node ${node.val}, sum is ${sum}`);
     let newSum = node.val + sum;
-    console.debug(`newSum: ${newSum}`);
+    logger.debug(`newSum: ${newSum}`);
     if (!node.left && !node.right) {
       return newSum;
     } else if (!node.left && node.right) {
@@ -49,6 +51,6 @@ function findMinPath(tree) {
   let root = tree.getRoot();
   let leftMin = recurse(root.left, root.val);
   let rightMin = recurse(root.right, root.val);
-  console.debug(`left: ${leftMin}; right: ${rightMin}`);
+  logger.debug(`left: ${leftMin}; right: ${rightMin}`);
   return Math.min(leftMin, rightMin);
 }

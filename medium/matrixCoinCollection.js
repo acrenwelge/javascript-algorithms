@@ -12,8 +12,9 @@ The most we can collect is 0 + 2 + 1 + 5 + 3 + 1 = 12 coins.
 */
 
 var assert = require('assert');
+var path = require('path');
 
-describe('coin collection matrix', function() {
+describe(path.basename(__filename), () => {
   it('should pass the default case', function() {
     // let solutions = getCoins([[0,3,1,1],[2,0,0,4],[1,5,3,1]])
     // assert.equal(Math.max(...solutions),12);

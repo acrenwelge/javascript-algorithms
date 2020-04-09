@@ -3,8 +3,9 @@ Given the head to a singly linked list, where each node also has a “random” 
 */
 
 var assert = require('assert');
+var path = require('path');
 
-describe(__filename, () => {
+describe(path.basename(__filename), () => {
   it('should clone', () => {
     let o1,o2,o3;
     o1 = {val: 'a', random: o1}

@@ -6,6 +6,7 @@ Write a function that, given n, returns the number of rounds you'd expect to pla
 
 var assert = require('assert');
 var path = require('path');
+var logger = require('../util/logger');
 
 describe(path.basename(__filename), () => {
   it('round number tests', () => {

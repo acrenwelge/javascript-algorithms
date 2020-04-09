@@ -5,8 +5,10 @@ For example, given k = 2 and the array [5, 2, 4, 0, 1], you should return 3.
 */
 
 var assert = require('assert');
+var path = require('path');
+var logger = require('../util/logger');
 
-describe(__filename, () => {
+describe(path.basename(__filename), () => {
   it('should solve trivial case', () => {
     assert.equal(maxProfitForK1([5,2,4,0,1]),2);
   });
@@ -59,7 +61,7 @@ function wrongMaxProfit(prices, k) {
       }
     }
   }
-  console.debug(profits);
+  logger.debug(profits);
   // now the problem is to find the highest valid combination of k profit objects (valid = sell before buying again)
   // there is some ambiguity in the question (does it mean # buys/sells can be UP TO k or STRICTLY k? we assume strictly k here)
   // we can create an array which contains nested arrays each representing k valid, unique transactions
@@ -79,7 +81,7 @@ function wrongMaxProfit(prices, k) {
       validTrx.push(transactions);
     }
   }
-  console.debug(validTrx);
+  logger.debug(validTrx);
   return validTrx
     .map(series =>
       series.map(trx => prices[trx.sell] - prices[trx.buy]) // map each sequence of transactions to its profit

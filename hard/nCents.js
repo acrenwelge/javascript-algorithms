@@ -7,8 +7,10 @@ For example, given n = 16, return 3 since we can make it with a 10¢, a 5¢, and
 */
 
 var assert = require('assert');
+var path = require('path');
+var logger = require('../util/logger');
 
-describe(__filename, () => {
+describe(path.basename(__filename), () => {
   it('should pass the default case of n=16 returns 3', () => {
     assert.equal(minCoins(16), 3);
   });
@@ -26,7 +28,7 @@ function minCoins(n) {
   for (let x=0; x < coins.length; x++) {
     let coin = coins[x];
     while (coin <= outstanding) {
-      console.debug(`using ${coin} cents`);
+      logger.debug(`using ${coin} cents`);
       min++;
       outstanding -= coin;
     }

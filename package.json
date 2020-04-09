@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --full-trace"
+    "test": "mocha",
+    "test:all": "mocha **/*.js"
   },
   "author": "",
   "license": "ISC",

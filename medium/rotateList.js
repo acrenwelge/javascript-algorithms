@@ -3,8 +3,9 @@ Write a function that rotates a list by k elements. For example, [1, 2, 3, 4, 5,
 */
 
 var assert = require('assert');
+var path = require('path');
 
-describe(__filename, function() {
+describe(path.basename(__filename), () => {
   it('should pass default case', function() {
     assert.deepStrictEqual(rotateList([1,2,3,4,5,6],2),[3,4,5,6,1,2]);
   });

@@ -13,8 +13,10 @@ You can assume each node has a parent pointer.
 
 var BinaryTree = require('../util/datastructures').BinaryTree;
 var assert = require('assert');
+var path = require('path');
+var logger = require('../util/logger');
 
-describe(__filename, () => {
+describe(path.basename(__filename), () => {
   it('should pass default test', () => {
     let bst = {val: 10};
     bst.left = {val: 5, parentRef: bst};
@@ -49,7 +51,7 @@ function getNextBiggest(node) {
   if (node.parentRef) {
     upMax = lookUp(node, node.val, Number.MAX_VALUE);
   }
-  console.debug(`down: ${downMax}, up: ${upMax}`);
+  logger.debug(`down: ${downMax}, up: ${upMax}`);
   if (downMax == node.val) {
     downMax = Number.MAX_VALUE; // don't choose it b/c must be GREATER than initial value
   } else if (upMax == node.val) {

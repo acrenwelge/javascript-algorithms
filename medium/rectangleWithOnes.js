@@ -11,8 +11,10 @@ Return 4.
 */
 
 var assert = require('assert');
+var path = require('path');
+var logger = require('../util/logger');
 
-describe('Largest Rectangle in the Matrix', function() {
+describe(path.basename(__filename), () => {
   it('should pass default test', () => {
     let mat = [[1,0,0,0],
                [1,0,1,1],
@@ -35,7 +37,7 @@ function getLargestRect(matrix) {
   // then find max area under the histogram at each "layer" while collapsing
   function maxAreaHistogram(hist) {
     // naive solution - O(n^2) to search through histogram at each block
-    console.debug(`histo: ${histogram}`);
+    logger.debug(`histo: ${histogram}`);
     let max = 0;
     for (let x=0; x < hist.length; x++) {
       let val = hist[x];
@@ -55,7 +57,7 @@ function getLargestRect(matrix) {
       let area = val * width;
       max = Math.max(area, max);
     }
-    console.debug(`histo max: ${max}`);
+    logger.debug(`histo max: ${max}`);
     return max;
   }
   let histogram = Array(matrix[0].length).fill(0);
@@ -69,7 +71,7 @@ function getLargestRect(matrix) {
       }
     }
     maxArea = Math.max(maxArea, maxAreaHistogram(histogram));
-    console.debug(`matrix max: ${maxArea}`);
+    logger.debug(`matrix max: ${maxArea}`);
   }
   return maxArea;
 }

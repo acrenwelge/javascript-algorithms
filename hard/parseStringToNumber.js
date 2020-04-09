@@ -15,8 +15,9 @@ And here are examples of non-numbers:
 */
 
 var assert = require('assert');
+var path = require('path');
 
-describe('parsing string to number', () => {
+describe(path.basename(__filename), () => {
   it('should pass positive default cases', () => {
     assert.ok(parse('10') === true);
     assert.ok(parse('-10') === true);

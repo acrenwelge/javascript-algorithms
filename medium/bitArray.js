@@ -9,8 +9,9 @@ get(i): gets the value at index i.
 */
 
 var assert = require('assert');
+var path = require('path');
 
-describe(__filename, () => {
+describe(path.basename(__filename), () => {
   it('should initialize properly', () => {
     let barr = new BitArray();
     barr.init(5);
