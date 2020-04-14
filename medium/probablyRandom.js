@@ -69,3 +69,5 @@ function getGeneratedNum(nums, probs) {
     rangeEnd = i+1 === nums.length ? 1 : rangeEnd + probs[i+1];
   }
 }
+
+// time: 12 min
