@@ -11,9 +11,7 @@ var path = require('path');
 var logger = require('../util/logger.js');
 
 describe(path.basename(__filename), () => {
-  beforeEach(() => {
-    logger.setLevel('OFF');
-  })
+  logger.setLevel('OFF');
   it('should pass the default case 1', () => {
     const start = 'dog';
     const end = 'cat';

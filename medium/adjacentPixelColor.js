@@ -39,7 +39,7 @@ describe(path.basename(__filename), () => {
 
 function replace(matrix, loc, color) {
   let replColor = matrix[loc[0]][loc[1]];
-  logger.setLevel('ALL');
+  // logger.setLevel('ALL');
   let rlvl = 0;
   function recurse(matrix, loc) {
     if (rlvl++ > 1000) {
