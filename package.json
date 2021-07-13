@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha",
+    "test:watch": "mocha -w -R min",
     "test:all": "mocha **/*.js"
   },
   "author": "",

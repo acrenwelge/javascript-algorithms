@@ -10,16 +10,16 @@ var logger = require('../util/logger');
 
 describe(path.basename(__filename), () => {
   it('should pass the default case', () => {
-    pts = [[0,0],[5,4],[3,1]];
+    const pts = [[0,0],[5,4],[3,1]];
     let center =  [1,2];
     assert.deepStrictEqual(getNearestPoints(pts,center,2), [[0,0],[3,1]]);
   })
   it('should pass the custom case', () => {
-    pts = [[-100,-10],[200,10],[3,1],[-1,1]];
+    const pts = [[-100,-10],[200,10],[3,1],[-1,1]];
     let center =  [0,0];
     assert.deepStrictEqual(getNearestPoints(pts,center,1), [[-1,1]]);
   })
-})
+});
 
 function getNearestPoints(points, center, k) {
   // distance formula: d = sqrt((y2-y1)^2 + (x2-x1)^2)
