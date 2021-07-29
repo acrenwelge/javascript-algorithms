@@ -9,7 +9,7 @@
             "request": "launch",
             "runtimeArgs": [
                 "test",
-                "medium"
+                "medium",
             ],
             "runtimeExecutable": "npm",
             "skipFiles": [

@@ -24,7 +24,7 @@ describe(path.basename(__filename), () => {
     result = collatz(40);
     assert.strictEqual(result[result.length-1], 1);
   });
-  it('should find the longest sequence', function (done) {
+  xit('should find the longest sequence', function (done) {
     this.timeout(0); // disable timeout
     setTimeout(done, 300);
     let seq = [];
@@ -45,7 +45,6 @@ function collatz(n) {
         n = collatzNext(n);
         seq.push(n);
     }
-    // console.log(seq);
     return seq;
 }
 
