@@ -10,6 +10,7 @@
             "runtimeArgs": [
                 "test",
                 "medium",
+                "snakesAndLadders.js"
             ],
             "runtimeExecutable": "npm",
             "skipFiles": [
