@@ -9,8 +9,8 @@
             "request": "launch",
             "runtimeArgs": [
                 "test",
-                "medium",
-                "snakesAndLadders.js"
+                "easy",
+                "dominoes.js"
             ],
             "runtimeExecutable": "npm",
             "skipFiles": [
